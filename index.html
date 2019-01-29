@@ -1,6 +1,19 @@
 <!doctype html>
 <html>
-	<head><title>AngularJS</title></head>
+	<head><title>AngularJS</title>
+		<style type="text/css">
+			.ng-invalid.ng-dirty{
+					border-color:red;
+			}
+			.ng-valid.ng-dirty{
+					border-color:green;
+			}
+			input,textarea{
+				border: 2px solid;
+			}
+		</style>
+
+	</head>
 	<body ng-app="myApp">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
@@ -12,17 +25,19 @@
 							<p>{{re.comment}}</p>
 							<p><b>{{re.by}}</b></p>
 						</div>
-				</div>
-				<form name="reviewForm" ng-submit="addReview()">
+				</div> 
+				<form name="reviewForm" ng-submit=" reviewForm.$valid && addReview()" novalidate>
 					<p> {{form.comment}}</p>
 					<p> {{form.by}} </p>
 
 
 						<label>Comment</label><br/>
-						<textarea ng-model="form.comment"></textarea><br/>
+						<textarea ng-model="form.comment" required></textarea><br/>
 						<label>Author</label><br/>
-						<input ng-model="form.by" type="email"/><br/>
-						<input type="submit" value="Add Review"/>
+						<input ng-model="form.by" type="email" required/><br/>
+						<input type="submit" value="Add Review"/><br/>
+
+						<p>Form Valid? {{reviewForm.$valid}}</p>
 				</form>
 		</div>
 
