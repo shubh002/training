@@ -21,3 +21,11 @@ app.controller('MyController', ['$scope',function($scope){
 	}
 	];
 }]);
+
+app.directive('userinformation',function(){
+	return{
+			restrict: 'A',
+			templateUrl : 'userinfo.html'
+
+	};
+});
