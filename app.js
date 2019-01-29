@@ -1,14 +1,23 @@
 var app=angular.module('myApp', []);
 
 app.controller('MyController', ['$scope',function($scope){
+	
+	$scope.form = {};
+
+	$scope.addReview = function(){
+		$scope.reviews.push($scope.form);
+		$scope.form = {};
+	}
+
+
 	$scope.reviews = [
 	{
 		comment : 'Could this be more Awesome?',
-		by : 'Chandler Bing'
+		by : 'Chandler.Bing@email.com'
 	},
 	{
 		comment : 'How ya Doin?',
-		by : 'Joey Tribianni'
+		by : 'Joey.Tribianni@email.com'
 	}
 	];
 }]);
