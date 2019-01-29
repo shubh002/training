@@ -1,46 +1,23 @@
 <!doctype html>
 <html>
-	<head><title>AngularJS</title>
-		<style type="text/css">
-			.ng-invalid.ng-dirty{
-					border-color:red;
-			}
-			.ng-valid.ng-dirty{
-					border-color:green;
-			}
-			input,textarea{
-				border: 2px solid;
-			}
-		</style>
-
-	</head>
+	<head><title>AngularJS</title></head>
 	<body ng-app="myApp">
+		<h2>Click on Candidates for Information</h2>
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
-		<script type="text/javascript" src="review.js"></script>
-		<div ng-controller="MyController">
-				<h2>Reviews</h2>
-				<div ng-repeat="re in reviews">
-						<div style="background-color:#EEEEEE">
-							<p>{{re.comment}}</p>
-							<p><b>{{re.by}}</b></p>
-						</div>
-				</div> 
-				<form name="reviewForm" ng-submit=" reviewForm.$valid && addReview()" novalidate>
-					<p> {{form.comment}}</p>
-					<p> {{form.by}} </p>
-
-
-						<label>Comment</label><br/>
-						<textarea ng-model="form.comment" required></textarea><br/>
-						<label>Author</label><br/>
-						<input ng-model="form.by" type="email" required/><br/>
-						<input type="submit" value="Add Review"/><br/>
-
-						<p>Form Valid? {{reviewForm.$valid}}</p>
-						<div userinformation></div>
-				</form>
+		<div ng-controller="MyController" align="left">
+			<button ng-click="toggleshow();count=0">Candidate 1</button><br/><br/>
+			<button ng-click="toggleshow();count=1">Candidate 2</button><br/><br/>
+			<button ng-click="toggleshow();count=2">Candidate 3</button><br/><br/>
+			<button ng-click="toggleshow();count=3">Candidate 4</button><br/><br/>
+			<button ng-click="toggleshow();count=4">Candidate 5</button><br/><br/>
+			<button ng-click="show=!true">Refresh</button><br/><br/><hr><br/>
+			<div ng-show="show">
+			<table>
+  				<tr ng-repeat="(key, value) in data[count]">
+    				<td> {{ key +"&nbsp;:" }} </td>  <td> {{ "&nbsp;" + value }} </td>
+  				</tr>
+			</table><br/>			
 		</div>
-
 	</body>
 </html>
