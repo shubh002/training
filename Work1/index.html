@@ -2,35 +2,22 @@
 <html>
 	<head><title>AngularJS</title></head>
 	<body ng-app="myApp">
+		<h2>Click on Candidates for Information</h2>
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
 		<div ng-controller="MyController" align="left">
-			<button ng-click="toggleshow0()">cand1</button><br/><br/>
-			<button ng-click="toggleshow1()">cand2</button><br/><br/>
-			<button ng-click="toggleshow2()">cand3</button><br/><br/>
-			<button ng-click="show0=!true;show1=!true;show2=!true">Refresh</button><br/><br/>
-			<div ng-show="show0">
+			<button ng-click="toggleshow();count=0">Candidate 1</button><br/><br/>
+			<button ng-click="toggleshow();count=1">Candidate 2</button><br/><br/>
+			<button ng-click="toggleshow();count=2">Candidate 3</button><br/><br/>
+			<button ng-click="toggleshow();count=3">Candidate 4</button><br/><br/>
+			<button ng-click="toggleshow();count=4">Candidate 5</button><br/><br/>
+			<button ng-click="show=!true">Refresh</button><br/><br/><hr><br/>
+			<div ng-show="show">
 			<table>
-  				<tr ng-repeat="(key, value) in data[0]">
-    				<td> {{ key &nbsp; }} </td>  <td> {{ value &nbsp; }} </td>
+  				<tr ng-repeat="(key, value) in data[count]">
+    				<td> {{ key +"&nbsp;:" }} </td>  <td> {{ "&nbsp;" + value }} </td>
   				</tr>
-			</table><br/>
-			<div>
-			<div ng-show="show1">
-			<table>
-  				<tr ng-repeat="(key, value) in data[1]">
-    				<td> {{ key &nbsp; }} </td>  <td> {{ value &nbsp; }} </td>
-  				</tr>
-			</table><br/>
-			<div>
-			<div ng-show="show2">
-			<table>
-  				<tr ng-repeat="(key, value) in data[2]">
-    				<td> {{ key &nbsp; }} </td>  <td> {{ value &nbsp; }} </td>
-  				</tr>
-			</table><br/>
-			<div>
-			
+			</table><br/>			
 		</div>
 	</body>
 </html>
