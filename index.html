@@ -5,13 +5,8 @@
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
 		<div ng-controller="MyController">
-			<div ng-repeat="emp in employees | orderBy:'-fname'">
-				<p>The First name is {{emp.fname | uppercase}} </p>
-				<p>The Last name is {{emp.lname | lowercase}} </p>
-				<p>The Salary is {{emp.salary | currency}} </p>
-				<p>Registration Number is {{emp.reg | limitTo:3}}</p>
-			</div>
+			<button ng-click="count=count+1;toggleshow()">Click</button>
+			<p ng-show="show">Count is {{count}}</p>
 		</div>
-
 	</body>
 </html>
