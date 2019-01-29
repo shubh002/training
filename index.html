@@ -4,9 +4,26 @@
 	<body ng-app="myApp">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
+		
 		<div ng-controller="MyController">
-			<button ng-click="count=count+1;toggleshow()">Click</button>
-			<p ng-show="show">Count is {{count}}</p>
+				<h2>Reviews</h2>
+				<div ng-repeat="re in reviews">
+						<div style="background-color:#EEEEEE">
+							<p>{{re.comment}}</p>
+							<p><b>{{re.by}}</b></p>
+						</div>
+				</div>
+				<form name="reviewForm">
+					<p> {{form.comment}}</p><br/>
+					<p> {{form.author}} </p>
+
+
+						<label>Comment</label><br/>
+						<textarea ng-model="form.comment"></textarea><br/>
+						<label>Author</label><br/>
+						<input ng-model="form.author" type="text"/>
+				</form>
 		</div>
+
 	</body>
 </html>
