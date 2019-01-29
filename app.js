@@ -24,7 +24,7 @@ app.controller('MyController', ['$scope',function($scope){
 
 app.directive('userinformation',function(){
 	return{
-			restrict: 'A',
+			restrict: 'E',
 			templateUrl : 'userinfo.html'
 
 	};
