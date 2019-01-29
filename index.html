@@ -17,7 +17,7 @@
 	<body ng-app="myApp">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
-		
+		<script type="text/javascript" src="review.js"></script>
 		<div ng-controller="MyController">
 				<h2>Reviews</h2>
 				<div ng-repeat="re in reviews">
@@ -38,8 +38,7 @@
 						<input type="submit" value="Add Review"/><br/>
 
 						<p>Form Valid? {{reviewForm.$valid}}</p>
-						<userinformation></userinformation>
-						
+						<div userinformation></div>
 				</form>
 		</div>
 
