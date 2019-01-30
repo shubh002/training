@@ -6,11 +6,7 @@
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
 		<div ng-controller="MyController" align="left">
-			<button ng-click="toggleshow();count=0">Candidate 1</button><br/><br/>
-			<button ng-click="toggleshow();count=1">Candidate 2</button><br/><br/>
-			<button ng-click="toggleshow();count=2">Candidate 3</button><br/><br/>
-			<button ng-click="toggleshow();count=3">Candidate 4</button><br/><br/>
-			<button ng-click="toggleshow();count=4">Candidate 5</button><br/><br/>
+			<button ng-click="toggleshow();count=0" ng-repeat="candidate in data">{{candidate.fname}}</button><br/><br/>
 			<button ng-click="show=!true">Refresh</button><br/><br/><hr><br/>
 			<div ng-show="show">
 			<table>
