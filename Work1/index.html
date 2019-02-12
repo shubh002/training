@@ -1,19 +1,51 @@
 <!doctype html>
 <html>
-	<head><title>AngularJS</title></head>
-	<body ng-app="myApp">
-		<h2>Click on Candidates for Information</h2>
+	<head><title>AngularJS</title>
+		<style>
+			.name{
+				margin-left: 30px;
+				font-weight: bold;
+				display :block;
+			}
+			.salary{
+				margin-left: 30px;
+				display:block;
+				color: darkgreen;
+			}
+			.regno{
+				margin-left: 30px;
+				display: block;
+			}
+			.img{
+				margin-left: 10px;
+				width: 50px;
+				height: 60px;
+			}
+			.cand{
+				background-color:ghostwhite;
+				padding:5px;
+				margin-bottom: 30px;
+				margin-right: 1500px;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp"> 
+		<h2 style="margin-left: 80px">Candidates Information</h2>
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script type="text/javascript"src="app.js"></script>
-		<div ng-controller="MyController" align="left">
-			<button ng-click="toggleshow();count=0" ng-repeat="candidate in data">{{candidate.fname}}</button><br/><br/>
-			<button ng-click="show=!true">Refresh</button><br/><br/><hr><br/>
-			<div ng-show="show">
-			<table>
-  				<tr ng-repeat="(key, value) in data[count]">
-    				<td> {{ key +"&nbsp;:" }} </td>  <td> {{ "&nbsp;" + value }} </td>
-  				</tr>
-			</table><br/>			
+		<div ng-controller="MyController">
+			<div ng-repeat="candidate in candidates" class="cand" ng-click="selected(candidate)">
+					<table>
+						<tr>
+							<td><img class="img"src="img1.jpg"/></td>
+							<td class="name">Name:	{{candidate.fname + " " + candidate.lname}} </td>
+						
+							<td class="salary">Salary:	{{candidate.salary}}</td>
+						
+							<td class="regno">Reg No:	{{candidate.regno}}</td>
+						</tr>
+					</table>
+			</div>
 		</div>
 	</body>
 </html>
