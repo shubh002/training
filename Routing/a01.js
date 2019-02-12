@@ -10,6 +10,9 @@ app.config(['$routeProvider', function($routeProvider){
     .when('/second-msg', {
         templateUrl: 'msg2.html',
     })
+    .when('/', {
+        template: '<strong>default message</strong>'
+    })
 
 }]);
 
