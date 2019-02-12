@@ -1,0 +1,25 @@
+.name{
+				margin-left: 30px;
+				font-weight: bold;
+				display :block;
+			}
+			.salary{
+				margin-left: 30px;
+				display:block;
+				color: darkgreen;
+			}
+			.regno{
+				margin-left: 30px;
+				display: block;
+			}
+			.img{
+				margin-left: 10px;
+				width: 50px;
+				height: 60px;
+			}
+			.cand{
+				background-color:ghostwhite;
+				padding:5px;
+				margin-bottom: 30px;
+				margin-right: 1500px;
+			}

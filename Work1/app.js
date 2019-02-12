@@ -1,16 +1,31 @@
-var app=angular.module('myApp', []);
+var app=angular.module('myApp', ['ngRoute']);
 
 app.controller('MyController', ['$scope', 'MyService',function($scope, myService){
 	
 	console.log(myService.getData());
 
 	$scope.candidates = myService.getData();
+
+	
 }]);
 
 
+app.config(function($routeProvider){
+	$routeProvider
+		.when('/home', {
+			templateUrl: 'home.html',
+			controller: 'getData'
+		})
+		.when('/viewCandidate',{
+			templateUrl: 'viewCandidate.html',
+			controller: 'getData'
+		})
+		.
+
+});
+
 app.service('MyService', function(){
 
-	var myObject = {};
 	this.data = [
 		{
 			fname: 'Shubham',
