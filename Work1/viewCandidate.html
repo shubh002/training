@@ -1,24 +1,23 @@
-<div class="container">
-    <h2>Candidate Details</h2>
+<link href="viewCandidate.css" rel="stylesheet"/> 
+<a href ="#/home" class="back">Back</a>
+<div class="container" ng-controller="DisplayDetails">
+    <p class="head">Candidate Details</p>
     <div>
-        <table>
-            <tr>
-                <td colspan="3">First Name:</td>
-                <td>{{candidate.fname}}</td> 
-            </tr>
-            <tr>
-                <td colspan="3">Last Name:</td>
-                <td>{{candidate.lname}}</td> 
-            </tr>
-            <tr>
-                <td colspan="3">Salary:</td>
-                <td>{{candidate.salary}}</td> 
-            </tr>
-            <tr>
-                <td colspan="3">Reg No:</td>
-                <td>{{candidate.regno}}</td> 
-            </tr>
-        </table>
+        <div>
+            <span colspan="3" class="title">First Name:</span>
+            <span>{{candidate.fname}}</span> 
+        </div>
+        <div>
+            <span colspan="3" class="title">Last Name:</span>
+            <span>{{candidate.lname}}</span> 
+        </div>
+        <div>
+            <span colspan="3" class="title">Salary:</span>
+            <span>{{candidate.salary}}</span> 
+        </div>
+        <div>
+            <span colspan="3" class="title">Reg No:</span>
+            <span>{{candidate.regno}}</span> 
+        </div>
     </div>
-    <a href ="#/home">Back</a>
 </div>

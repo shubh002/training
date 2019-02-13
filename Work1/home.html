@@ -1,22 +1,21 @@
 <link href="home.css" rel="stylesheet"/> 
-<div ng-controller="MyController">
+<div ng-controller="CandController">
     <div class="container">
         <p class="head"> Click on Name to get details </p>
         <div ng-repeat="candidate in candidates"  class="cand">
-            <table>
-                <tr>
-                    <td class="index">{{$index + 1 +")"}}</td>
-                    <td>
+            <div>
+                <div>
+                    <span class="index">{{$index + 1 +")"}}</span>
+                    <span>
                         <img src="{{candidate.imagePath}}" alt="Not Found" class="image">
-                    </td>
-                    <td ng-click="showCandidateDetail(candidate)">
+                    </span>
+                    <span ng-click="showCandidateDetail(candidate)">
                         <a ng-href='{{"#!/viewCandidate/"+ candidate.fname}}' class="link">
                             {{candidate.fname}}
                         </a>
-                    </td>
-                    <br/>
-                </tr>
-            </table>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

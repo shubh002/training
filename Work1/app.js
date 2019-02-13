@@ -1,28 +1,33 @@
 var app=angular.module('myApp', ['ngRoute']);
 
-app.controller('MyController', ['$scope', 'MyService', '$location',function($scope, myService, $location){
+app.controller('CandController', ['$scope', 'MyService',function($scope, myService){
 	
 	console.log(myService.getData());
 
 	$scope.candidates = myService.getData();
 
-	$index=0;
+	$scope.index=0;
 
-	$scope.retIndex = function(){
-		return $index;
-	};
 }]);
 
+app.controller('DisplayDetails',['$scope', 'MyService',function($scope, myService){
+	$scope.candidates = myService.getData();
+
+	$scope.showCandidateDetail = function($candidate){
+			return $candidate;
+	};
+
+}]);
 
 app.config(function($routeProvider){
 	$routeProvider
 		.when('/home', {
 			templateUrl: 'home.html',
-			controller: 'MyController'
+			controller: 'CandController'
 		})
 		.when('/viewCandidate/:name',{
 			templateUrl: 'viewCandidate.html',
-			controller: 'MyController'
+			controller: 'DisplayDetails'
 		})
 		.otherwise({
 			redirectTo: '/home'
@@ -62,18 +67,18 @@ app.service('MyService', function(){
 			imagePath: '/Work1/images/male.jpg'
 		},
 		{
-			fname: 'Yash',
-			lname: 'Mittal',
-			salary: 4500,
-			regno: 46000123,
-			imagePath: '/Work1/images/male.jpg'
-		},
-		{
 			fname: 'Archana',
 			lname: 'Nair',
 			salary: 7500,
 			regno: 44700123,
 			imagePath: '/Work1/images/female.jpg'
+		},
+		{
+			fname: 'Yash',
+			lname: 'Mittal',
+			salary: 4500,
+			regno: 46000123,
+			imagePath: '/Work1/images/male.jpg'
 		},
 		{
 			fname: 'Kushal',
@@ -84,8 +89,7 @@ app.service('MyService', function(){
 		}
 	];
 	
-	var cand={};
-	this.getData = function(cand){
+	this.getData = function(){
 		return this.data;
 	};
 
