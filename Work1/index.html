@@ -1,28 +1,13 @@
 <!doctype html>
 <html>
 	<head><title>AngularJS</title>
-	<link href="style.css" rel="stylesheet"/> 
+	<!--link href="style.css" rel="stylesheet"/--> 
 	</head>
-	<body ng-app="myApp"> 
-		<h2 style="margin-left: 80px">Candidates Information</h2>
+	<body> 
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 		<script type="text/javascript"src="app.js"></script>
-		<div ng-controller="MyController">
-			<div ng-repeat="candidate in candidates" class="cand" ng-click="selected(candidate)">
-					<table>
-						<tr>
-							<td><img class="img"src="img1.jpg"/></td>
-							<td class="name">Name:	{{candidate.fname + " " + candidate.lname}} </td>
-						
-							<td class="salary">Salary:	{{candidate.salary}}</td>
-						
-							<td class="regno">Reg No:	{{candidate.regno}}</td>
-						</tr>
-					</table>
-			</div>
-		</div>
-		<div>
+		<div ng-app="myApp">
 			<ng-view></ng-view>
 		</div>
 	</body>

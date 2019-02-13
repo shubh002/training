@@ -1,10 +1,17 @@
-<div class="container">
-	<h2> Click on Name to get details </h2>
-	<div ng-repeat="candidate in candidates"  >
-		<table>
-			<tr>
-				<td>Name:</td><td><a href="#viewCandidate">{{candidate.fname}}</a></td><br/>
-			</tr>
-		</table>
-	</div>
+<div ng-controller="MyController">
+    <div class="container">
+        <h2> Click on Name to get details </h2>
+        <div ng-repeat="candidate in candidates">
+            <table>
+                <tr>
+                    <td>{{$index + 1 +":"}}</td>
+                    <td>
+                        <img src="{{candidate.imagePath}}" alt="">
+                        <span ng-click="showCandidateDetail(candidate)">{{candidate.fname}}</span>
+                    </td>
+                    <br />
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
