@@ -11,10 +11,6 @@ app.controller('MyController', ['$scope', 'MyService', '$location',function($sco
 	$scope.retIndex = function(){
 		return $index;
 	};
-
-	$scope.showCandidateDetail = function(candidate){
-		$location.path('/viewCandidate/' +  candidate.fname);
-	}
 }]);
 
 
@@ -41,7 +37,7 @@ app.service('MyService', function(){
 			lname: 'Verma',
 			salary: 5000,
 			regno: 47600123,
-			imagePath: '/images/img1.jpg'
+			imagePath: '/Work1/images/male.jpg'
 
 		},
 		{
@@ -49,28 +45,42 @@ app.service('MyService', function(){
 			lname: 'Srivastava',
 			salary: 6000,
 			regno: 48000123,
-			imagePath: '/Work1/images/img1.jpg'
+			imagePath: '/Work1/images/male.jpg'
+		},
+		{
+			fname: 'Surabhi',
+			lname: 'Sethi',
+			salary: 5000,
+			regno: 42000123,
+			imagePath: '/Work1/images/female.jpg'
 		},
 		{
 			fname: 'Harshit',
 			lname: 'Gupta',
 			salary: 8000,
 			regno: 53600123,
-			imagePath: '/images/img1.jpg'
+			imagePath: '/Work1/images/male.jpg'
 		},
 		{
 			fname: 'Yash',
 			lname: 'Mittal',
 			salary: 4500,
 			regno: 46000123,
-			imagePath: '/images/img1.jpg'
+			imagePath: '/Work1/images/male.jpg'
+		},
+		{
+			fname: 'Archana',
+			lname: 'Nair',
+			salary: 7500,
+			regno: 44700123,
+			imagePath: '/Work1/images/female.jpg'
 		},
 		{
 			fname: 'Kushal',
 			lname: 'Gupta',
 			salary: 5500,
 			regno: 43000123,
-			imagePath: '/images/img1.jpg'
+			imagePath: '/Work1/images/male.jpg'
 		}
 	];
 	
