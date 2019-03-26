@@ -1,0 +1,21 @@
+<link href="home.css" rel="stylesheet"/> 
+<div ng-controller="CandController">
+    <div class="container">
+        <p class="head"> Click on Name to get details </p>
+        <div ng-repeat="candidate in candidates"  class="cand">
+            <div>
+                <div>
+                    <span class="index">{{$index + 1 +")"}}</span>
+                    <span>
+                        <img src="{{candidate.imagePath}}" alt="Not Found" class="image">
+                    </span>
+                    <span ng-click="getCandidate(candidate.id)">
+                        <a ng-href='{{"#!/viewCandidate/"+ candidate.id}}' class="link">
+                            {{candidate.fname}}
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+{
+    "candidates": [
+            {
+                "fname": "Shubham",
+                "lname": "Verma",
+                "salary": 5000,
+                "regNo": 47600123,
+                "imagePath": "/Work 2/images/male.jpg",
+                "id": 1
+            },
+            {
+                "fname": "Anukool",
+                "lname": "Srivastava",
+                "salary": 6000,
+                "regNo": 48000123,
+                "imagePath": "/Work 2/images/male.jpg",
+                "id": 2
+            },
+            {
+                "fname": "Surabhi",
+                "lname": "Sethi",
+                "salary": 5000,
+                "regNo": 42000123,
+                "imagePath": "/Work 2/images/female.jpg",
+                "id": 3
+            },
+            {
+                "fname": "Harshit",
+                "lname": "Gupta",
+                "salary": 8000,
+                "regNo": 53600123,
+                "imagePath": "/Work 2/images/male.jpg",
+                "id": 4
+            },
+            {
+                "fname": "Archana",
+                "lname": "Nair",
+                "salary": 7500,
+                "regNo": 44700123,
+                "imagePath": "/Work 2/images/female.jpg",
+                "id": 5
+            },
+            {
+                "fname": "Yash",
+                "lname": "Mittal",
+                "salary": 4500,
+                "regNo": 46000123,
+                "imagePath": "/Work 2/images/male.jpg",
+                "id": 6
+            },
+            {
+                "fname": "Kushal",
+                "lname": "Gupta",
+                "salary": 5500,
+                "regNo": 43000123,
+                "imagePath": "/Work 2/images/male.jpg",
+                "id": 7
+            }
+        ]
+}

@@ -1,0 +1,24 @@
+.head{
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 0.8cm;
+    font-family: 'Times New Roman', Times, serif;
+    display :block;
+}
+.index{
+    margin-left: 30px;
+}
+.image{
+    margin-left: 10px;
+    width: 50px;
+    height: 60px;
+}
+.cand{
+    margin-left: 10px;
+    background-color:ghostwhite;
+    margin-bottom: 30px;
+    margin-right: 1500px;
+}
+.link{
+    color: blue;
+}
