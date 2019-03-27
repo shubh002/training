@@ -1,0 +1,9 @@
+<a href="#/home" class="back">Back</a>
+<h1>Delete a Candidate</h1>
+<div ng-controller="DeleteCandidate">
+    <form ng-submit="removeCandidate()">
+        <label>Enter the ID of candidate you want to remove</label><br/>
+        <input type="text" id="id" ng-model="id" /> <br/>
+        <input type="submit" value="Remove"/>
+    </form>
+</div>

@@ -23,21 +23,22 @@ app.controller('AddCandidate',['$scope', 'MyService', function($scope, myService
 	{
 			if ($scope.fname != '' && $scope.lname != '' && $scope.regNo != '' && $scope.salary != '') 
 			{
-					// ADD A NEW Candidate
+					// add candidate
 					var rand = myService.randomGenerator();
 
 					var candidate = { fname: $scope.fname, lname: $scope.lname, regNo: $scope.regNo, salary: $scope.salary, imagePath: "/Work 2/images/female.jpg", id: rand };
 
 					myService.addCandidate(candidate);
 
-					// CLEAR THE FIELDS.
-					$scope.fname = '';
-					$scope.lname = '';
-					$scope.regNo = '';
-					$scope.salary = '';
 			}
 	}
 
+}]);
+
+
+app.controller('DeleteCandidate',['$scope', 'MySrvice', function($scope, myservice){
+
+	
 }]);
 
 
@@ -51,8 +52,8 @@ app.config(function($routeProvider){
 			templateUrl: 'viewCandidate.html',
 			controller: 'DisplayDetails'
 		})
-		.when('/add', {
-			templateUrl: 'add.html',
+		.when('/addCandidate', {
+			templateUrl: 'addCandidate.html',
 			controller: 'AddCandidate'
 		})
 		.otherwise({
@@ -74,7 +75,7 @@ app.service('MyService', function($http){
       });
 	};
 
-	this.addCandidate = function(candidate) {
+	this.addCandidate = function(candidate, $http) {
 		$http({
 			url: 'http://localhost:3000/candidates',
 			method: "POST",
@@ -84,15 +85,14 @@ app.service('MyService', function($http){
 			}).error(function (status) {
 					$scope.status = status;
 			});
-	}
+	};
 
 	this.randomGenerator = function(){
-		var max=1000;
+		var max=999;
 		var min=10;
 		var random = Math.floor(Math.random() * (+max - +min)) + +min;
 		return random;
-
-	}
+	};
 
 
 	this.getCandidate = function(id){
@@ -100,5 +100,19 @@ app.service('MyService', function($http){
 			return singleCand.id === id;
 		})[0];
 	};
+
+	this.removeCandidate = function($http){
+		$http({
+			url: 'http://localhost:3000/candidates',
+			method: "DELETE",
+			data: candidate,
+		}).success(function (data) {
+					$scope.candidates = data;
+			}).error(function (status) {
+					$scope.status = status;
+			});
+
+	};
+
 
 });
