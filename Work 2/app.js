@@ -1,6 +1,6 @@
 var app=angular.module('myApp', ['ngRoute']);
 
-app.controller('CandController', ['$scope', 'MyService', '$http', function($scope, myService, $http){
+app.controller('CandController', ['$scope', 'MyService', function($scope, myService){
 
 	myService.getData().then(function(candidates){		
 		$scope.candidates = candidates;
@@ -8,13 +8,38 @@ app.controller('CandController', ['$scope', 'MyService', '$http', function($scop
 
 }]);
 
-app.controller('DisplayDetails',['$scope', 'MyService', '$routeParams', '$http' , function($scope, myService, $routeParams, $http){
+app.controller('DisplayDetails',['$scope', 'MyService', '$routeParams', function($scope, myService, $routeParams){
 	
 	var id = parseInt($routeParams.id);
 	
 	$scope.singleCand = myService.getCandidate(id);
 
 }]);
+
+
+app.controller('AddCandidate',['$scope', 'MyService', function($scope, myService){
+
+	$scope.submitCandidate = function () 
+	{
+			if ($scope.fname != '' && $scope.lname != '' && $scope.regNo != '' && $scope.salary != '') 
+			{
+					// ADD A NEW Candidate
+					var rand = myService.randomGenerator();
+
+					var candidate = { fname: $scope.fname, lname: $scope.lname, regNo: $scope.regNo, salary: $scope.salary, imagePath: "/Work 2/images/female.jpg", id: rand };
+
+					myService.addCandidate(candidate);
+
+					// CLEAR THE FIELDS.
+					$scope.fname = '';
+					$scope.lname = '';
+					$scope.regNo = '';
+					$scope.salary = '';
+			}
+	}
+
+}]);
+
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -25,6 +50,10 @@ app.config(function($routeProvider){
 		.when('/viewCandidate/:id',{
 			templateUrl: 'viewCandidate.html',
 			controller: 'DisplayDetails'
+		})
+		.when('/add', {
+			templateUrl: 'add.html',
+			controller: 'AddCandidate'
 		})
 		.otherwise({
 			redirectTo: '/home'
@@ -44,6 +73,27 @@ app.service('MyService', function($http){
 			console.log(error);          
       });
 	};
+
+	this.addCandidate = function(candidate) {
+		$http({
+			url: 'http://localhost:3000/candidates',
+			method: "POST",
+			data: candidate,
+	}).success(function (data) {
+					$scope.candidates = data;
+			}).error(function (status) {
+					$scope.status = status;
+			});
+	}
+
+	this.randomGenerator = function(){
+		var max=1000;
+		var min=10;
+		var random = Math.floor(Math.random() * (+max - +min)) + +min;
+		return random;
+
+	}
+
 
 	this.getCandidate = function(id){
 		return this.data.filter(function(singleCand){
